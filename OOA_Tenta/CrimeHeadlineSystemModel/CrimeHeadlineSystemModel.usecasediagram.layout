@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<useCaseDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="CrimeHeadlineSystemModel">
+  <useCaseModelRootMoniker Id="c7d4d6a0-8431-4109-9b04-1b3028776b4c" />
+  <nestedChildShapes>
+    <actorShape Id="ff94b9aa-6d26-46ce-8a99-a4b1018442a4" absoluteBounds="1.125, 1.375, 0.5, 0.5" isReference="false" heightOffset="0">
+      <actorMoniker Id="b6444e3e-71b4-4804-a81f-531992b742db" LastKnownName="Criminal" />
+      <relativeChildShapes />
+    </actorShape>
+    <SubsystemShape Id="702eaf17-d9c9-44f5-8350-0966cb4eeea1" absoluteBounds="2.75, 1.5, 3, 2.5" customColor="White">
+      <subsystemMoniker Id="08412359-16ea-473f-b195-008d0998e14a" LastKnownName="CrimeHeadlineSystem" />
+      <nestedChildShapes>
+        <useCaseShape Id="f9703761-1277-44e8-8a6a-7139e93b1790" absoluteBounds="3.75, 2.25, 1, 0.5" customColor="238, 237, 131" heightOffset="0">
+          <useCaseMoniker Id="92afde8f-0e49-4282-ae61-cbf93f8ecf99" LastKnownName="Read top crimes" />
+          <relativeChildShapes />
+        </useCaseShape>
+      </nestedChildShapes>
+    </SubsystemShape>
+    <useCaseDependencyConnector edgePoints="[(1.625 : 1.70108695652174); (3.82290072219278 : 2.37001326327606)]" fixedFrom="Algorithm" fixedTo="Algorithm" customColor="Black">
+      <dependencyMoniker Id="07d53b1f-4af9-4e71-98cd-20c71987c389" />
+      <relativeChildShapes />
+      <nodes>
+        <actorShapeMoniker Id="ff94b9aa-6d26-46ce-8a99-a4b1018442a4" />
+        <useCaseShapeMoniker Id="f9703761-1277-44e8-8a6a-7139e93b1790" />
+      </nodes>
+    </useCaseDependencyConnector>
+  </nestedChildShapes>
+</useCaseDiagram>
