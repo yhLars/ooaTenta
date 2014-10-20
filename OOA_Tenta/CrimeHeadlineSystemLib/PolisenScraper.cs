@@ -1,16 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using HtmlAgilityPack;
+﻿using HtmlAgilityPack;
 
 namespace CrimeHeadlineSystemLib
 {
     public class PolisenScraper
     {
         private CrimeHeadlineSystem _crimeHeadlineSystem;
-        public string title = string.Empty;
+        public string Title = string.Empty;
+        private const string Url = @"http://www.polisen.se/";
 
         public PolisenScraper(CrimeHeadlineSystem crimeHeadlineSystem)
         {
@@ -21,18 +17,17 @@ namespace CrimeHeadlineSystemLib
         public void ReadTopCrime()
         {
             GetPolisenHeadLines();
-            _crimeHeadlineSystem.FoundCrime("Polisen", title);
+            _crimeHeadlineSystem.FoundCrime("Polisen", Title);
         }
 
         private void GetPolisenHeadLines()
         {
             HtmlWeb htmlWeb = new HtmlWeb();
-            string url = @"http://www.polisen.se/";
-            HtmlDocument htmlDocument = htmlWeb.Load(url);
+            HtmlDocument htmlDocument = htmlWeb.Load(Url);
 
             HtmlNode headLine = htmlDocument.DocumentNode.SelectSingleNode(@"//*[@id='newslist-1']/div/ul/li[1]/p[1]/a");
 
-            title = headLine.InnerHtml;
+            Title = headLine.InnerHtml;
         }
     }
 }

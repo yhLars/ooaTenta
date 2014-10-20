@@ -1,5 +1,4 @@
-﻿using System;
-using CrimeHeadlineSystemLib;
+﻿using CrimeHeadlineSystemLib;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace CrimeHeadlineSystemTests
@@ -13,15 +12,15 @@ namespace CrimeHeadlineSystemTests
             // Arrange
             string unexpectedHeadLine = string.Empty;
 
-            // Act
             CrimeHeadlineSystem crimeHeadlineSystem = new CrimeHeadlineSystem();
             PolisenScraper polisenScraper = new PolisenScraper(crimeHeadlineSystem);
 
+            // Act
             polisenScraper.ReadTopCrime();
-
-            string actualHeadLine = polisenScraper.title;
+            string actualHeadLine = polisenScraper.Title;
 
             // Assert
+            // Check that the headline is NOT string.Empty
             Assert.AreNotEqual(unexpectedHeadLine, actualHeadLine);
         }
 
@@ -31,15 +30,15 @@ namespace CrimeHeadlineSystemTests
             // Arrange
             string unexpectedHeadLine = string.Empty;
 
-            // Act
             CrimeHeadlineSystem crimeHeadlineSystem = new CrimeHeadlineSystem();
             UtryckningScraper utryckningScraper = new UtryckningScraper(crimeHeadlineSystem);
 
+            // Act
             utryckningScraper.ReadTopCrime();
-
-            string actualHeadLine = utryckningScraper.title;
+            string actualHeadLine = utryckningScraper.Title;
 
             // Assert
+            // Check that the headline is NOT string.Empty
             Assert.AreNotEqual(unexpectedHeadLine, actualHeadLine);
         }
 
