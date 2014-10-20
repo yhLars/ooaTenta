@@ -8,10 +8,9 @@ namespace CrimeHeadlineSystemLib
 {
     public class ScreenScraperFactory : IScreenScraperFactory
     {
-        public IScreenScraperService CreateFactory(string type)
+        public IScreenScraperService CreateFactory(string type, CrimeHeadlineSystem crimeHeadlineSystem)
         {
             IScreenScraperService screenScraperService = null;
-            CrimeHeadlineSystem crimeHeadlineSystem = new CrimeHeadlineSystem();
 
             switch (type)
             {

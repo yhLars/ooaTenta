@@ -1,4 +1,5 @@
-﻿using CrimeHeadlineSystemLib;
+﻿using System.Diagnostics.Contracts;
+using CrimeHeadlineSystemLib;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace CrimeHeadlineSystemTests
@@ -13,7 +14,9 @@ namespace CrimeHeadlineSystemTests
             string unexpectedHeadLine = string.Empty;
 
             CrimeHeadlineSystem crimeHeadlineSystem = new CrimeHeadlineSystem();
-            IScreenScraperService polisenScraper = new PolisenScraper(crimeHeadlineSystem);
+
+            IScreenScraperFactory screenScraperFactory = new ScreenScraperFactory();
+            IScreenScraperService polisenScraper = screenScraperFactory.CreateFactory("polisen", crimeHeadlineSystem);
 
             // Act
             string actualHeadLine = polisenScraper.ReadTopCrime();
@@ -28,9 +31,10 @@ namespace CrimeHeadlineSystemTests
         {
             // Arrange
             string unexpectedHeadLine = string.Empty;
-
             CrimeHeadlineSystem crimeHeadlineSystem = new CrimeHeadlineSystem();
-            IScreenScraperService utryckningScraper = new UtryckningScraper(crimeHeadlineSystem);
+
+            IScreenScraperFactory screenScraperFactory = new ScreenScraperFactory();
+            IScreenScraperService utryckningScraper = screenScraperFactory.CreateFactory("utryckning", crimeHeadlineSystem);
 
             // Act
             string actualHeadLine = utryckningScraper.ReadTopCrime();

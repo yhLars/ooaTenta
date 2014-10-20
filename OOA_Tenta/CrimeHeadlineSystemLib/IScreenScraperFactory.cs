@@ -8,6 +8,6 @@ namespace CrimeHeadlineSystemLib
 {
     public interface IScreenScraperFactory
     {
-        IScreenScraperService CreateFactory(string type);
+        IScreenScraperService CreateFactory(string type, CrimeHeadlineSystem crimeHeadlineSystem);
     }
 }
