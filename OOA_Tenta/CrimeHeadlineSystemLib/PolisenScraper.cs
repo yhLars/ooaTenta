@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using HtmlAgilityPack;
 
 namespace CrimeHeadlineSystemLib
 {
@@ -19,8 +20,19 @@ namespace CrimeHeadlineSystemLib
 
         public void ReadTopCrime()
         {
-            title = "Test";
+            GetPolisenHeadLines();
             _crimeHeadlineSystem.FoundCrime("Polisen", title);
+        }
+
+        private void GetPolisenHeadLines()
+        {
+            HtmlWeb htmlWeb = new HtmlWeb();
+            string url = @"http://www.polisen.se/";
+            HtmlDocument htmlDocument = htmlWeb.Load(url);
+
+            HtmlNode headLine = htmlDocument.DocumentNode.SelectSingleNode(@"//*[@id='newslist-1']/div/ul/li[1]/p[1]/a");
+
+            title = headLine.InnerHtml;
         }
     }
 }
