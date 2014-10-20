@@ -53,6 +53,12 @@
     <Compile Include="CrimeHeadlineSystemUnitTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CrimeHeadlineSystemLib\CrimeHeadlineSystemLib.csproj">
+      <Project>{f44e2ae8-8a3a-4edf-807f-bfc797c6c690}</Project>
+      <Name>CrimeHeadlineSystemLib</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
       <ItemGroup>
