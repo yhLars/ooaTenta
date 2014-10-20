@@ -13,11 +13,10 @@ namespace CrimeHeadlineSystemTests
             string unexpectedHeadLine = string.Empty;
 
             CrimeHeadlineSystem crimeHeadlineSystem = new CrimeHeadlineSystem();
-            PolisenScraper polisenScraper = new PolisenScraper(crimeHeadlineSystem);
+            IScreenScraperService polisenScraper = new PolisenScraper(crimeHeadlineSystem);
 
             // Act
-            polisenScraper.ReadTopCrime();
-            string actualHeadLine = polisenScraper.Title;
+            string actualHeadLine = polisenScraper.ReadTopCrime();
 
             // Assert
             // Check that the headline is NOT string.Empty
@@ -31,11 +30,10 @@ namespace CrimeHeadlineSystemTests
             string unexpectedHeadLine = string.Empty;
 
             CrimeHeadlineSystem crimeHeadlineSystem = new CrimeHeadlineSystem();
-            UtryckningScraper utryckningScraper = new UtryckningScraper(crimeHeadlineSystem);
+            IScreenScraperService utryckningScraper = new UtryckningScraper(crimeHeadlineSystem);
 
             // Act
-            utryckningScraper.ReadTopCrime();
-            string actualHeadLine = utryckningScraper.Title;
+            string actualHeadLine = utryckningScraper.ReadTopCrime();
 
             // Assert
             // Check that the headline is NOT string.Empty

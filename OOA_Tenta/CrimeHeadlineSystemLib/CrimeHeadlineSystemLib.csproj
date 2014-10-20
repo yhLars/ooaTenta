@@ -43,8 +43,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CrimeHeadlineSystem.cs" />
+    <Compile Include="IScreenScraperFactory.cs" />
+    <Compile Include="IScreenScraperService.cs" />
     <Compile Include="PolisenScraper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ScraperBase.cs" />
+    <Compile Include="ScreenScraperFactory.cs" />
     <Compile Include="UtryckningScraper.cs" />
   </ItemGroup>
   <ItemGroup>

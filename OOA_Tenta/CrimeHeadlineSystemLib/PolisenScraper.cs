@@ -1,12 +1,12 @@
-﻿using HtmlAgilityPack;
+﻿using System.Net;
+using HtmlAgilityPack;
 
 namespace CrimeHeadlineSystemLib
 {
-    public class PolisenScraper
+    public class PolisenScraper : ScraperBase
     {
         private CrimeHeadlineSystem _crimeHeadlineSystem;
         public string Title = string.Empty;
-        private const string Url = @"http://www.polisen.se/";
 
         public PolisenScraper(CrimeHeadlineSystem crimeHeadlineSystem)
         {
@@ -14,20 +14,19 @@ namespace CrimeHeadlineSystemLib
             _crimeHeadlineSystem.RegisterPolisenScraper(this);
         }
 
-        public void ReadTopCrime()
+        public override string ScrapeUrl
         {
-            GetPolisenHeadLines();
-            _crimeHeadlineSystem.FoundCrime("Polisen", Title);
+            get { return "http://www.polisen.se/"; }
         }
 
-        private void GetPolisenHeadLines()
+        public override string xPath
         {
-            HtmlWeb htmlWeb = new HtmlWeb();
-            HtmlDocument htmlDocument = htmlWeb.Load(Url);
+            get { return @"//*[@id='newslist-1']/div/ul/li[1]/p[1]/a"; }
+        }
 
-            HtmlNode headLine = htmlDocument.DocumentNode.SelectSingleNode(@"//*[@id='newslist-1']/div/ul/li[1]/p[1]/a");
-
-            Title = headLine.InnerHtml;
+        public override string ReadTopCrime()
+        {
+            return _crimeHeadlineSystem.FoundCrime("Polisen", GetHeadLine());
         }
     }
 }

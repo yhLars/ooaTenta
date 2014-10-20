@@ -19,10 +19,12 @@ namespace CrimeHeadlineSystemLib
             Debug.WriteLine("UtryckningScraper is registered.");
         }
 
-        internal void FoundCrime(string site, string title)
+        internal string FoundCrime(string site, string title)
         {
             Console.WriteLine("Site:  '" + site + "'");
             Console.WriteLine("Title: '" + title + "'");
+
+            return title;
         }
     }
 }
